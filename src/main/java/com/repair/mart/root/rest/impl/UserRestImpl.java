@@ -1,5 +1,6 @@
 package com.repair.mart.root.rest.impl;
 
+import com.repair.mart.root.constants.RepairMartConstants;
 import com.repair.mart.root.rest.api.UserRestApi;
 import com.repair.mart.root.service.api.UserServiceApi;
 import com.repair.mart.root.util.RepairMartUtils;
@@ -18,10 +19,10 @@ public class UserRestImpl implements UserRestApi {
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
         try {
-            return userService.signUp();
+            return userService.signUp(requestMap);
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return RepairMartUtils.getResponseEntity("Error occurring while use signup", HttpStatus.INTERNAL_SERVER_ERROR);
+        return RepairMartUtils.getResponseEntity(RepairMartConstants.ERROR_OCCURRING_WHEN+ "signup", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

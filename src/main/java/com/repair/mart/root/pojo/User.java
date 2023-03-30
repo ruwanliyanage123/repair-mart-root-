@@ -9,8 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@NamedQuery(name = "User.findByEmailId", query = "SELECT u FROM User u WHERE u.email=:email")//note:u.email mean the @Column(name = "email")
 @Data
 @Entity
 @DynamicInsert
